@@ -25,6 +25,16 @@ that, or ask Claude to add an export/backup button first.
 
 ## Updating the app later
 
-Ask Claude for changes → commit the new `index.html` to this repo → the site
-re-deploys automatically and the app updates itself on your phone. Your data
-is untouched by updates.
+Ask Claude for changes → the site re-deploys automatically on every push to
+`main` and the app updates itself on your phone. Your data is untouched by
+updates.
+
+## For Claude / developers
+
+The app source is `src/app.jsx`. The deployed `app.js` is that file compiled
+with Babel (preset `react`), and `tailwind.css` is generated from the classes
+used in `src/app.jsx` (Tailwind v3, content = `src/app.jsx`). React is
+vendored as the two `*.production.min.js` files — the app must stay fully
+self-contained (no CDN script tags; they are unreliable on iOS and break the
+PWA). After changing app assets, bump the cache version in `sw.js` so
+installed phones pick up the update.

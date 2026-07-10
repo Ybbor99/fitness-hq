@@ -1274,7 +1274,8 @@ function App() {
     className: "min-h-screen",
     style: {
       background: C.bg,
-      fontFamily: "-apple-system, system-ui, 'Segoe UI', sans-serif"
+      fontFamily: "-apple-system, system-ui, 'Segoe UI', sans-serif",
+      paddingTop: "env(safe-area-inset-top)"
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "mx-auto",
@@ -1284,7 +1285,7 @@ function App() {
   }, tab === "today" && TodayScreen(), tab === "plan" && PlanScreen(), tab === "guides" && GuidesScreen(), tab === "weight" && WeightScreen()), storageInfo && !storageInfo.ok && /*#__PURE__*/React.createElement("div", {
     className: "fixed left-0 right-0 px-4",
     style: {
-      bottom: 76,
+      bottom: "calc(64px + env(safe-area-inset-bottom))",
       zIndex: 21
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -1297,7 +1298,7 @@ function App() {
   }, "\u26A0\uFE0F Storage unavailable in this view \u2014 nothing will save. Tell Claude you see this.")), saveState === "error" && /*#__PURE__*/React.createElement("div", {
     className: "fixed left-0 right-0 px-4",
     style: {
-      bottom: 76,
+      bottom: "calc(64px + env(safe-area-inset-bottom))",
       zIndex: 20
     }
   }, /*#__PURE__*/React.createElement("div", {
@@ -1310,7 +1311,7 @@ function App() {
   }, "\u26A0\uFE0F Couldn't save. You may be in an old copy \u2014 open the newest app card in the chat.")), saveState === "saved" && /*#__PURE__*/React.createElement("div", {
     className: "fixed right-4 pointer-events-none",
     style: {
-      bottom: 82,
+      bottom: "calc(70px + env(safe-area-inset-bottom))",
       zIndex: 20
     }
   }, /*#__PURE__*/React.createElement("span", {
@@ -1324,7 +1325,8 @@ function App() {
     style: {
       background: "rgba(15,16,19,.92)",
       backdropFilter: "blur(14px)",
-      borderTop: `1px solid ${C.line}`
+      borderTop: `1px solid ${C.line}`,
+      paddingBottom: "env(safe-area-inset-bottom)"
     }
   }, /*#__PURE__*/React.createElement("div", {
     className: "mx-auto flex",
@@ -1334,7 +1336,7 @@ function App() {
   }, tabs.map(([id, label, icon]) => /*#__PURE__*/React.createElement("button", {
     key: id,
     onClick: () => setTab(id),
-    className: "flex-1 flex flex-col items-center gap-0.5 py-2.5 pb-4"
+    className: "flex-1 flex flex-col items-center gap-0.5 py-2.5"
   }, /*#__PURE__*/React.createElement("div", {
     className: "text-xl",
     style: {
